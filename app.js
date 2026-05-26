@@ -241,21 +241,56 @@ total += parseInt(checked.value);
 
 let risk = "";
 let className = "";
+let recommendation = "";
+
+// НИЗКИЙ РИСК
 
 if(total <= 7){
 
 risk = "Низкий риск";
 className = "low";
 
-}else if(total <= 15){
+recommendation = `
+Состояние ребёнка относительно стабильное.
+Рекомендуется продолжать питьевой режим,
+оральную регидратацию и наблюдение за
+состоянием ребёнка.
+`;
+
+}
+
+// СРЕДНИЙ
+
+else if(total <= 15){
 
 risk = "Средний риск";
 className = "medium";
 
-}else{
+recommendation = `
+Имеются признаки обезвоживания средней степени.
+Необходимо увеличить объём жидкости,
+чаще предлагать солевые растворы и обратиться
+к врачу в ближайшее время.
+`;
+
+}
+
+// ВЫСОКИЙ
+
+else{
 
 risk = "Высокий риск";
 className = "high";
+
+recommendation = `
+Высокий риск тяжёлого обезвоживания.
+Требуется срочное обращение за медицинской помощью.
+
+При выраженной слабости,
+отсутствии мочеиспускания,
+многократной рвоте или сонливости
+необходимо вызвать скорую помощь.
+`;
 
 }
 
@@ -269,7 +304,11 @@ result.innerHTML = `
 
 <h2>${total} баллов</h2>
 
-<p>${risk}</p>
+<h3>${risk}</h3>
+
+<p style="margin-top:15px; line-height:1.8;">
+${recommendation}
+</p>
 
 `;
 
@@ -279,21 +318,28 @@ date:new Date().toLocaleString("ru-RU"),
 
 score:total,
 
-risk:risk
+risk:risk,
+
+recommendation:recommendation
 
 };
 
+// FIREBASE
+
 try{
 
-await addDoc(
-collection(db,"results"),
+await firebaseAddDoc(
+firebaseCollection(firebaseDB,"results"),
 data
 );
+
+console.log("Сохранено");
 
 }catch(error){
 
 console.log(error);
 
+alert("Ошибка Firebase");
 }
 
 }
@@ -335,8 +381,8 @@ document.getElementById("resultsList");
 
 resultsList.innerHTML = "";
 
-const snapshot = await getDocs(
-collection(db,"results")
+const snapshot = await firebaseGetDocs(
+firebaseCollection(firebaseDB,"results")
 );
 
 let total = 0;
