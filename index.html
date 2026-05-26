@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Медицинский опросник</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<button class="theme-btn" onclick="toggleTheme()">
+🌙
+</button>
+
+<div class="container">
+
+<div class="hero">
+
+<h1>🩺 Медицинский опросник</h1>
+
+<p>
+Оценка обезвоживания и калькулятор водного баланса
+</p>
+
+</div>
+
+<!-- КАЛЬКУЛЯТОР -->
+
+<div class="card">
+
+<h2>💧 Калькулятор воды</h2>
+
+<div class="water-grid">
+
+<div class="input-group">
+
+<label>Вес (кг)</label>
+
+<input type="number" id="weight">
+
+</div>
+
+<div class="input-group">
+
+<label>Пол</label>
+
+<div class="toggle-group">
+
+<button class="gender active" data-gender="male">
+Мужчина
+</button>
+
+<button class="gender" data-gender="female">
+Женщина
+</button>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Активность</label>
+
+<div class="toggle-group">
+
+<button class="activity active" data-value="1.0">
+Минимальная
+</button>
+
+<button class="activity" data-value="1.2">
+Средняя
+</button>
+
+<button class="activity" data-value="1.4">
+Высокая
+</button>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Климат</label>
+
+<div class="toggle-group">
+
+<button class="climate active" data-value="1.0">
+Прохладный
+</button>
+
+<button class="climate" data-value="1.1">
+Нейтральный
+</button>
+
+<button class="climate" data-value="1.2">
+Жаркий
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button class="main-btn" onclick="calculateWater()">
+Рассчитать
+</button>
+
+<div id="waterResult" class="water-result"></div>
+
+</div>
+
+<!-- ОПРОС -->
+
+<div class="card">
+
+<h2>📋 Опросник</h2>
+
+<form id="quizForm"></form>
+
+<button class="main-btn" onclick="calculateQuiz()">
+Завершить опрос
+</button>
+
+<div id="quizResult" class="quiz-result"></div>
+
+</div>
+
+<!-- АДМИН -->
+
+<div class="card">
+
+<h2>🔐 Вход администратора</h2>
+
+<div class="admin-grid">
+
+<input type="text" id="adminLogin" placeholder="Логин">
+
+<input type="password" id="adminPassword" placeholder="Пароль">
+
+</div>
+
+<button class="main-btn" onclick="loginAdmin()">
+Войти
+</button>
+
+</div>
+
+<!-- ПАНЕЛЬ -->
+
+<div id="adminPanel" style="display:none;">
+
+<div class="card">
+
+<h2>📊 Статистика</h2>
+
+<div class="stats-grid">
+
+<div class="stat-box">
+
+<p>Всего тестов</p>
+
+<h3 id="totalTests">0</h3>
+
+</div>
+
+<div class="stat-box">
+
+<p>Средний балл</p>
+
+<h3 id="avgScore">0</h3>
+
+</div>
+
+<div class="stat-box">
+
+<p>Высокий риск</p>
+
+<h3 id="highRisk">0</h3>
+
+</div>
+
+</div>
+
+<canvas id="chart"></canvas>
+
+</div>
+
+<div class="card">
+
+<h2>🧾 История результатов</h2>
+
+<div id="resultsList"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
