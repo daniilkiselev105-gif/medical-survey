@@ -1,11 +1,13 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
 getFirestore,
 collection,
 addDoc,
 getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
  apiKey: "AIzaSyB30FiMevIxKh-yi2VzclbpuXk89ZwhYdI",
@@ -21,7 +23,9 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-window.db = db;
-window.collection = collection;
-window.addDoc = addDoc;
-window.getDocs = getDocs;
+// ГЛОБАЛЬНО
+
+window.firebaseDB = db;
+window.firebaseCollection = collection;
+window.firebaseAddDoc = addDoc;
+window.firebaseGetDocs = getDocs;
