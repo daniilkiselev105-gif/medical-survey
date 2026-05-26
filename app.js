@@ -460,22 +460,28 @@ fill:true
 
 }
 
-// LOADER
+// LOADER FIX
 
-window.addEventListener("load", ()=>{
+window.onload = function(){
+
+const loader = document.getElementById("loader");
+
+if(loader){
 
 setTimeout(()=>{
 
-document.getElementById("loader")
-.style.opacity = "0";
+loader.style.opacity = "0";
+
+loader.style.pointerEvents = "none";
 
 setTimeout(()=>{
 
-document.getElementById("loader")
-.style.display = "none";
+loader.remove();
 
 },600);
 
-},1200);
+},1000);
 
-});
+}
+
+};
