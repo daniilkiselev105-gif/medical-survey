@@ -225,3 +225,34 @@ grid-template-columns:1fr;
 }
 
 }
+
+.info-card h3{
+
+margin-top:25px;
+font-size:22px;
+
+}
+
+.info-card p{
+
+line-height:1.8;
+opacity:0.92;
+
+}
+
+.warning-box{
+
+margin-top:25px;
+padding:20px;
+
+border-radius:20px;
+
+background:rgba(239,68,68,0.12);
+
+border:1px solid rgba(239,68,68,0.35);
+
+font-weight:600;
+
+line-height:1.7;
+
+}
