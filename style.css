@@ -1,3 +1,9 @@
+button{
+
+font-family:'Inter',sans-serif;
+
+}
+
 :root{
 
 --bg:#f4f7fb;
@@ -121,6 +127,18 @@ font-size:18px;
 font-weight:700;
 background:linear-gradient(135deg,#ff6a00,#ff3d54);
 color:white;
+
+}
+
+.main-btn:hover{
+
+transform:translateY(-2px);
+
+opacity:0.95;
+
+box-shadow:0 10px 25px rgba(255,80,80,0.25);
+
+transition:0.3s;
 
 }
 
