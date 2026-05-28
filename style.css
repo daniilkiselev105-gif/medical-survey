@@ -109,57 +109,6 @@ border:1px solid var(--border);
 
 }
 
-.water-grid{
-
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-
-}
-
-.input-group label{
-
-display:block;
-margin-bottom:10px;
-
-}
-
-.input-group input{
-
-width:100%;
-padding:16px;
-border-radius:18px;
-border:1px solid var(--border);
-background:var(--card);
-color:var(--text);
-
-}
-
-.toggle-group{
-
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-
-}
-
-.toggle-group button{
-
-padding:14px 18px;
-border-radius:16px;
-border:none;
-cursor:pointer;
-background:transparent;
-border:1px solid var(--border);
-color:var(--text);
-
-}
-
-.toggle-group button.active{
-
-background:linear-gradient(135deg,#d946ef,#6366f1);
-color:white;
-
 }
 
 .main-btn{
@@ -174,17 +123,6 @@ font-size:18px;
 font-weight:700;
 background:linear-gradient(135deg,#ff6a00,#ff3d54);
 color:white;
-
-}
-
-.water-result,
-.quiz-result{
-
-display:none;
-margin-top:20px;
-padding:20px;
-border-radius:20px;
-border:1px solid var(--border);
 
 }
 
